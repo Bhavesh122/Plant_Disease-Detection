@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Prediction Results</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+    <style>
+        body {
+            background-image: url('/static/images/background.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            font-family: Arial, sans-serif;
+            color: #fff;
+            text-align: center;
+        }
+        .container {
+            background-color: rgba(0, 0, 0, 0.6);
+            padding: 20px;
+            border-radius: 10px;
+            display: inline-block;
+            margin-top: 50px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Prediction Results:</h2>
+        <p>Plant Type: <span id="plantType">{{ info.plant_type }}</span></p>
+        <p>Disease Type: <span id="diseaseType">{{ info.disease_type }}</span></p>
+        <h3>Precautions:</h3>
+        <ul id="precautionsList">
+            {% for precaution in info.precautions %}
+                <li>{{ precaution }}</li>
+            {% endfor %}
+        </ul>
+        <h3>Fertilizers:</h3>
+        <ul id="fertilizerList">
+            {% for fertilizer in info.fertilizers %}
+                <li>{{ fertilizer }}</li>
+            {% endfor %}
+        </ul>
+        <button id="speakButton">🔊 Speak Out</button>
+        <a href="/">⬅️ Go Back</a>
+    </div>
+
+    <script src="/static/js/script.js"></script>
+</body>
+</html>
